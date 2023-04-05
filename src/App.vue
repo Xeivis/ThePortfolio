@@ -1,14 +1,26 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+  import { useDark } from "@vueuse/core"
+  import HelloWorld from './components/HelloWorld.vue'
+  import TheWelcome from './components/TheWelcome.vue'
+  import defaultLogo from "./assets/logo.svg"
+  import lightThemeLogo from "./assets/logoBlack.svg"
+  import darkThemeLogo from "./assets/logoWhite.svg"
+  
+  let image = defaultLogo
+
+  useDark()? image = lightThemeLogo : image = darkThemeLogo
+    
+
 </script>
 
 <template>
   <header>
-    <img alt="Xeivis logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+
+    <img v-bind:src="image" alt="Xeivis logo" class="logo" width="125" height="125" />
 
     <div class="wrapper">
       <HelloWorld msg="Hello there!" />
+      {{ useDark() }}
     </div>
   </header>
 
