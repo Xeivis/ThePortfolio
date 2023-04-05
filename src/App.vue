@@ -8,7 +8,7 @@
   
   let image = defaultLogo
 
-  useDark()? image = lightThemeLogo : image = darkThemeLogo
+  useDark()? image = darkThemeLogo : image = lightThemeLogo
     
 
 </script>
