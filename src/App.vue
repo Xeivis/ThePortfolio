@@ -8,7 +8,13 @@
   
   let image
 
-  useDark().value? (image = darkThemeLogo) : (image = lightThemeLogo)    
+  useDark().value? (image = darkThemeLogo) : (image = lightThemeLogo)
+
+  useDark({
+    onChanged(dark){
+      dark? (image = darkThemeLogo) : (image = lightThemeLogo)
+    }
+  })
 
 </script>
 
