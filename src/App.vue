@@ -6,10 +6,9 @@
   import lightThemeLogo from "./assets/logoBlack.svg"
   import darkThemeLogo from "./assets/logoWhite.svg"
   
-  let image = defaultLogo
+  let image
 
-  useDark()? image = darkThemeLogo : image = lightThemeLogo
-    
+  useDark().value? (image = darkThemeLogo) : (image = lightThemeLogo)    
 
 </script>
 
@@ -20,7 +19,7 @@
 
     <div class="wrapper">
       <HelloWorld msg="Hello there!" />
-      {{ useDark() }}
+      {{ useDark().value }}
     </div>
   </header>
 
