@@ -1,6 +1,5 @@
 <script setup>
   import { useDark, useFavicon } from "@vueuse/core"
-  // import { ref } from "vue"
   import HelloWorld from './components/HelloWorld.vue'
   import TheWelcome from './components/TheWelcome.vue'
   import lightThemeLogo from "./assets/logoBlack.svg"
@@ -40,7 +39,6 @@
 
     <div class="wrapper">
       <HelloWorld msg="Hello there!" />
-      {{ useDark().value }}
     </div>
   </header>
 
