@@ -1,18 +1,33 @@
 <script setup>
-  import { useDark } from "@vueuse/core"
+  import { useDark, useFavicon } from "@vueuse/core"
+  // import { ref } from "vue"
   import HelloWorld from './components/HelloWorld.vue'
   import TheWelcome from './components/TheWelcome.vue'
-  import defaultLogo from "./assets/logo.svg"
   import lightThemeLogo from "./assets/logoBlack.svg"
   import darkThemeLogo from "./assets/logoWhite.svg"
+  import lightThemeIco from "/icoMinBlack.ico"
+  import darkThemeIco from "/icoMinWhite.ico"
   
   let image
+  let ico = useFavicon()
 
-  useDark().value? (image = darkThemeLogo) : (image = lightThemeLogo)
+  if (useDark().value) {
+    image = darkThemeLogo
+    ico.value = darkThemeIco
+  } else {
+    image = lightThemeLogo
+    ico.value = lightThemeIco
+  }
 
   useDark({
     onChanged(dark){
-      dark? (image = darkThemeLogo) : (image = lightThemeLogo)
+      if (dark) {
+        image = darkThemeLogo
+        ico.value = darkThemeIco
+      } else {
+        image = lightThemeLogo
+        ico.value = lightThemeIco
+      }
     }
   })
 
