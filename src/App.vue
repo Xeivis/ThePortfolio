@@ -2,6 +2,7 @@
   import { useDark, useFavicon } from "@vueuse/core"
   import HelloWorld from './components/HelloWorld.vue'
   import TheWelcome from './components/TheWelcome.vue'
+  /* import Paralax from './components/Paralax.vue' */
   import lightThemeLogo from "./assets/logoBlack.svg"
   import darkThemeLogo from "./assets/logoWhite.svg"
   import lightThemeIco from "/icoMinBlack.ico"
@@ -45,6 +46,10 @@
   <main>
     <TheWelcome />
   </main>
+
+  <!-- <footer>
+    <Paralax />
+  </footer> -->
 </template>
 
 <style scoped>
