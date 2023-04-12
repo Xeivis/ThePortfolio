@@ -1,11 +1,42 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+  import { useDark, useFavicon } from "@vueuse/core"
+  import HelloWorld from './components/HelloWorld.vue'
+  import TheWelcome from './components/TheWelcome.vue'
+  /* import Paralax from './components/Paralax.vue' */
+  import lightThemeLogo from "./assets/logoBlack.svg"
+  import darkThemeLogo from "./assets/logoWhite.svg"
+  import lightThemeIco from "/icoMinBlack.ico"
+  import darkThemeIco from "/icoMinWhite.ico"
+  
+  let image
+  let ico = useFavicon()
+
+  if (useDark().value) {
+    image = darkThemeLogo
+    ico.value = darkThemeIco
+  } else {
+    image = lightThemeLogo
+    ico.value = lightThemeIco
+  }
+
+  useDark({
+    onChanged(dark){
+      if (dark) {
+        image = darkThemeLogo
+        ico.value = darkThemeIco
+      } else {
+        image = lightThemeLogo
+        ico.value = lightThemeIco
+      }
+    }
+  })
+
 </script>
 
 <template>
   <header>
-    <img alt="Xeivis logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+
+    <img v-bind:src="image" alt="Xeivis logo" class="logo" width="125" height="125" />
 
     <div class="wrapper">
       <HelloWorld msg="Hello there!" />
@@ -15,6 +46,10 @@ import TheWelcome from './components/TheWelcome.vue'
   <main>
     <TheWelcome />
   </main>
+
+  <!-- <footer>
+    <Paralax />
+  </footer> -->
 </template>
 
 <style scoped>
